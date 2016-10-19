@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dino_names">
+        <item>Avaceratops</item>
+        <item>Brachiosaurus</item>
+        <item>Cartoon Dinosaur</item>
+        <item>Deinonychus</item>
+        <item>Gorgosaurus</item>
+        <item>Irritator</item>
+        <item>Megalosaurus</item>
+        <item>Nipponosaurus</item>
+        <item>Pentaceratops</item>
+        <item>Saltasaurus</item>
+    </string-array>
+
+    <string-array name="dino_desc">
+        <item>This drawing shows the possible appearance of Avaceratops, a dinosaur from the late Cretaceous Period. The first fossil remains of Avaceratops were found in 1981 in Montana, USA. Like other Ceratopsian dinosaurs, Avaceratops was a herbivore (plant eater).</item>
+        <item>This drawing shows the possible appearance of Brachiosaurus, a Sauropod dinosaur from the late Jurassic Period (around 150 million years ago). The Brachiosaurus was a herbivore (plant eater) and lived in North America. For more information on this interesting dinosaur check out our Brachiosaurus facts page.</item>
+        <item>This clip art picture features a cute looking cartoon dinosaur. It is eating a plant and from its shape and design it appears to be a Sauropod dinosaur such as a Diplodocus or Brachiosaurus.</item>
+        <item>This CGI drawing shows the possible appearance of Deinonychus, a dinosaur from the early Cretaceous Period (around 110 million years ago). Deinonychus was from the same family of dinosaurs as the Velociraptor and its name means \'terrible claw\'. For more information on this interesting dinosaur check out our Deinonychus facts page.</item>
+        <item>This drawing shows the possible appearance of a Gorgosaurus as it attacks a Parasaurolophus. Gorgosaurus was a Theropod that lived in the late Cretaceous Period (around 75 million years ago). It lived in North America and was from the same family of dinosaurs as the Tyrannosaurus rex, featuring small arms, sharp teeth and a length of around 9 metres (30 feet).</item>
+        <item>This drawing shows the possible appearance of Irritator, a dinosaur from the early Cretaceous Period (around 110 million years ago). Fossil remains of this Theropod dinosaur are limited but scientists estimate that it grew to around 8 metres (26 feet) in length. An 80cm fossil skull was found in Brazil and Irritator was first described in 1996.</item>
+        <item>This drawing shows the possible appearance of Megalosaurus, a dinosaur from the middle Jurassic Period (around 166 million years ago). Megalosaurus was a large Theropod and the first dinosaur to be formally named by the scientific community in 1824. It was a carnivore (meat eater) and reached around 9 metres (30 feet) in length. </item>
+        <item>This drawing shows the possible appearance of Nipponosaurus (meaning \'Japanese lizard\'), a dinosaur from the late Cretaceous Period. Fossils of the Nipponsaurus were first found in Japan in 1934.</item>
+        <item>This drawing shows the possible appearance of Pentaceratops, a dinosaur from the late Cretaceous Period (around 75 million years ago). Pentaceratops (meaning \'five horned face\') is related to the Triceratops (meaning \'three horned face\' and like other Ceratopsid dinosaurs, ate plants. It weighed around 5500 kg (13000 lb) and reached around 8 metres (27 feet) in length.</item>
+        <item>This drawing shows the possible appearance of Saltasaurus, a dinosaur from the late Cretaceous Period (around 70 million years ago). While Saltasaurus was a member of the huge Sauropod family, it was relatively small compared to others such as the Diplodocus and Apatosaurus. It featured small boney plates in its skin that acted as armor, was a herbivore (plant eater) and had an estimated length of a round 12 metres (39 feet).</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,13 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/web"
+        android:showAsAction="ifRoom"
+        android:title="@string/menuItem1"
+        tools:ignore="AppCompatResource"></item>
+    <item
+        android:id="@+id/about"
+        android:showAsAction="ifRoom"
+        android:title="@string/menuItem2"
+        tools:ignore="AppCompatResource"></item>
+</menu>

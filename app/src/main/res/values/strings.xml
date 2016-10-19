@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab7</string>
+    <string name="page_name">Hipster Dinosaurs</string>
+
+    <string name="menuItem1">Dinosaur Website</string>
+    <string name="menuItem2">About</string>
+    <string name="about">"This is an application displaying a list of 10 dinosaurs."</string>
+</resources>
