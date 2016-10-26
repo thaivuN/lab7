@@ -1,6 +1,7 @@
 package com.example.a1412998.lab7;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -17,25 +18,37 @@ public class MainActivity extends AppCompatActivity {
     private String [] dinodescs;
     private int[] imagesIconIds;
 
+    private DBHipsterDino dbHD;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        dbHD = DBHipsterDino.getDBHipsterDino(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imagesID = new int[]{R.drawable.avaceratops, R.drawable.brachiosaurusdrawing,
-                R.drawable.cartoondinosaur, R.drawable.deinonychus, R.drawable.gorgosaurus,
-                R.drawable.irritator, R.drawable.megalosaurus, R.drawable.nipponosaurus,
-                R.drawable.pentaceratops, R.drawable.saltasaurus};
 
-        imagesIconIds = new int []{
-                R.drawable.avaceratops_icon, R.drawable.brachiosaurusdrawing_icon,
-                R.drawable.cartoondinosaur_icon, R.drawable.deinonychus_icon, R.drawable.gorgosaurus_icon,
-                R.drawable.irritator_icon, R.drawable.megalosaurus_icon, R.drawable.nipponosaurus_icon,
-                R.drawable.pentaceratops_icon, R.drawable.saltasaurus_icon
-        };
+        Cursor cursor = dbHD.getDinos();
+        int ctr= 0;
 
-        dinonames = getResources().getStringArray(R.array.dino_names);
-        dinodescs = getResources().getStringArray(R.array.dino_desc);
+        int cursorSize = cursor.getCount();
+
+        dinonames = new String[cursorSize];
+        dinodescs = new String[cursorSize];;
+        imagesID = new int[cursorSize];
+        imagesIconIds = new int [cursorSize];
+
+
+
+        while(cursor.moveToNext()){
+            dinonames[ctr] = cursor.getString(cursor.getColumnIndex(dbHD.COL_NAME));
+            dinodescs[ctr] = cursor.getString(cursor.getColumnIndex(dbHD.COL_INFO));
+            imagesID[ctr] = cursor.getInt(cursor.getColumnIndex(dbHD.COL_IMG_ID));
+            imagesIconIds[ctr] = cursor.getInt(cursor.getColumnIndex(dbHD.COL_ICON_ID));
+        }
+
+        cursor.close();
+
 
         this.lview = (ListView) findViewById(R.id.lView);
         lview.setAdapter(new DinoAdaptor(this, imagesID, imagesIconIds, dinonames, dinodescs));
