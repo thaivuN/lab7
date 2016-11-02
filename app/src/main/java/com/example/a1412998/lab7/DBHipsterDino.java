@@ -24,7 +24,7 @@ public class DBHipsterDino extends SQLiteOpenHelper {
     private static final String DB_Name = "dino.db";
     private static final int DATABASE_VERSION = 1;
     private static DBHipsterDino daoH = null;
-    private SQLiteDatabase db;
+
 
 
     private static final String DATABASE_CREATE = "create table "
@@ -54,8 +54,52 @@ public class DBHipsterDino extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(DATABASE_CREATE);
+
         Log.i(TAG, "onCreate() executed");
+        populateDB(sqLiteDatabase);
+
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        Log.i(TAG, "onOpen() executed");
+    }
+
+
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVer, int newVer) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_DINO);
+        Log.i(TAG, "Updating database");
+
+        onCreate(sqLiteDatabase);
+        Log.i(TAG, "onUpgrade() called");
+
+    }
+
+    public long insertDino(String name, String info, int img_id, int icon_id, SQLiteDatabase db){
+        ContentValues cv = new ContentValues();
+
+        cv.put(COL_NAME, name);
+        cv.put(COL_INFO, info);
+        cv.put(COL_IMG_ID, img_id);
+        cv.put(COL_ICON_ID, icon_id);
+
+
+
+
+        long code = db.insert(TABLE_DINO, null, cv);
+        return code;
+    }
+
+    public Cursor getDinos(){
+        return getReadableDatabase().query(TABLE_DINO, null, null, null,
+                null, null, null);
+    }
+
+    private void populateDB(SQLiteDatabase db){
+        db.execSQL(DATABASE_CREATE);
         int[]imagesID = new int[]{R.drawable.avaceratops, R.drawable.brachiosaurusdrawing,
                 R.drawable.cartoondinosaur, R.drawable.deinonychus, R.drawable.gorgosaurus,
                 R.drawable.irritator, R.drawable.megalosaurus, R.drawable.nipponosaurus,
@@ -71,36 +115,9 @@ public class DBHipsterDino extends SQLiteOpenHelper {
         String[]dinonames = context.getResources().getStringArray(R.array.dino_names);
         String[]dinodescs = context.getResources().getStringArray(R.array.dino_desc);
 
+
         for (int i = 0; i < dinonames.length; i++){
-            insertDino(dinonames[i], dinodescs[i], imagesID[i], imagesIconIds[i]);
+            insertDino(dinonames[i], dinodescs[i], imagesID[i], imagesIconIds[i], db);
         }
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVer, int newVer) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_DINO);
-        Log.i(TAG, "Updating database");
-
-        onCreate(sqLiteDatabase);
-        Log.i(TAG, "onUpgrade() called");
-
-    }
-
-    public long insertDino(String name, String info, int img_id, int icon_id){
-        ContentValues cv = new ContentValues();
-
-        cv.put(COL_NAME, name);
-        cv.put(COL_INFO, info);
-        cv.put(COL_IMG_ID, img_id);
-        cv.put(COL_ICON_ID, icon_id);
-        
-
-        long code = getWritableDatabase().insert(TABLE_DINO, null, cv);
-        return code;
-    }
-
-    public Cursor getDinos(){
-        return getReadableDatabase().query(TABLE_DINO, null, null, null,
-                null, null, null);
     }
 }

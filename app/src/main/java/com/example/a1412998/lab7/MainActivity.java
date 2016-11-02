@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             dinodescs[ctr] = cursor.getString(cursor.getColumnIndex(dbHD.COL_INFO));
             imagesID[ctr] = cursor.getInt(cursor.getColumnIndex(dbHD.COL_IMG_ID));
             imagesIconIds[ctr] = cursor.getInt(cursor.getColumnIndex(dbHD.COL_ICON_ID));
+            ctr++;
         }
 
         cursor.close();
